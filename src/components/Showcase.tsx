@@ -2,10 +2,10 @@ import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 
 const projects = [
-  { id: 1, type: "Reel", title: "Lifestyle Vlogs", img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=1000", span: "md:col-span-2 md:row-span-2" },
-  { id: 2, type: "Collaboration", title: "Tech Spotlight", img: "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=800", span: "col-span-1" },
-  { id: 3, type: "Promotion", title: "Fashion Drop", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=800", span: "col-span-1" },
-  { id: 4, type: "Culture", title: "Festival Season", img: "https://images.unsplash.com/photo-1533174000255-a63b42ae1de1?auto=format&fit=crop&q=80&w=1000", span: "md:col-span-2" },
+  { id: 1, type: "Reel", title: "Lifestyle Vlogs", span: "md:col-span-2 md:row-span-2", text: "Immersive storytelling showing day-to-day life." },
+  { id: 2, type: "Collaboration", title: "Tech Spotlight", span: "col-span-1", text: "Product reviews and integration." },
+  { id: 3, type: "Promotion", title: "Fashion Drop", span: "col-span-1", text: "Styling and lookbooks for brands." },
+  { id: 4, type: "Culture", title: "Festival Season", span: "md:col-span-2", text: "Authentic cultural celebration content." },
 ];
 
 export function Showcase() {
@@ -38,13 +38,12 @@ export function Showcase() {
               transition={{ duration: 0.8, delay: i * 0.1 }}
               className={`relative group overflow-hidden rounded-2xl ${p.span}`}
             >
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500 z-10" />
-              <img 
-                src={p.img} 
-                alt={p.title}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent z-20 flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-white/[0.02] group-hover:bg-accent/5 transition-colors duration-500 z-10 flex items-center justify-center p-8 text-center" >
+                <p className="text-paper/40 font-light italic text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0 delay-75">
+                  {p.text}
+                </p>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-20 flex flex-col justify-end p-8 border border-border-glass rounded-2xl group-hover:border-accent/30 transition-colors duration-500">
                 <span className="text-sm font-medium tracking-widest uppercase text-accent mb-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                   {p.type}
                 </span>
